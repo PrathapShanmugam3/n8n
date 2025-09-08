@@ -3,7 +3,7 @@ services:
     name: n8n-service
     env: docker
     dockerfilePath: ./Dockerfile
-    plan: free # or your paid plan
+    plan: free
     envVars:
       - key: DB_TYPE
         value: postgresdb
@@ -19,11 +19,9 @@ services:
         value: AVNS_KDMqDAKw2I13Rr776
       - key: DB_SSL
         value: "true"
-      - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
-        value: "true"
-      - key: GENERIC_TIMEZONE
-        value: Asia/Kolkata
       - key: PORT
         value: "5678"
-    healthCheckPath: /
-    instances: 1
+      - key: GENERIC_TIMEZONE
+        value: Asia/Kolkata
+      - key: N8N_ENCRYPTION_KEY
+        value: 8l88i+uMSpeMoJq3Z1NdnFTv6BeC8x7xhLAL5jTvvCY=

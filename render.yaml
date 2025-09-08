@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: n8n-service
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free # or your paid plan
+    envVars:
+      - key: DB_TYPE
+        value: postgresdb
+      - key: DB_POSTGRESDB_HOST
+        value: development-datacode.j.aivencloud.com
+      - key: DB_POSTGRESDB_PORT
+        value: "15555"
+      - key: DB_POSTGRESDB_DATABASE
+        value: defaultdb
+      - key: DB_POSTGRESDB_USER
+        value: avnadmin
+      - key: DB_POSTGRESDB_PASSWORD
+        value: AVNS_KDMqDAKw2I13Rr776
+      - key: DB_SSL
+        value: "true"
+      - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
+        value: "true"
+      - key: GENERIC_TIMEZONE
+        value: Asia/Kolkata
+      - key: PORT
+        value: "5678"
+    healthCheckPath: /
+    instances: 1

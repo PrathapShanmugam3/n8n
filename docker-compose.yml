@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    ports:
+      - "5678:5678"
+    environment:
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=development-datacode.j.aivencloud.com
+      - DB_POSTGRESDB_PORT=15555
+      - DB_POSTGRESDB_DATABASE=defaultdb
+      - DB_POSTGRESDB_USER=avnadmin
+      - DB_POSTGRESDB_PASSWORD=AVNS_KDMqDAKw2I13Rr776
+      - DB_POSTGRESDB_SSLMODE=require
+      - GENERIC_TIMEZONE=Asia/Kolkata
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+volumes:
+  n8n_data:
